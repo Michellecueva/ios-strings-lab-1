@@ -13,28 +13,73 @@
 
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
+``` swift
+var num = 1...10
 
+for i in num {
+
+    print(String("\(i)"), terminator: " ")
+}
+
+```
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
+
+```swift 
+var num = 5...51
+
+for i in num where i % 2 == 0 {
+    print(String("\(i)"), terminator: " ")
+}
+
+
+```
 
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
 
+``` swift
+
+var num = 1...60
+
+for i in num where i % 10 == 4 {
+    print(String("\(i)"), terminator: " ")
+}
+
+
+```
+
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
+``` swift
+var greeting = "Hello world!"
+
+for letter in greeting {
+    print(letter)
+}
+
+```
 
 ***
 ## Question 5
 
 Print out the last character in the string below.  You cannot use the Character literal "!" (i.e you must access `myStringSeven`'s characters).
-
+``` swift
 `let myStringSeven = "Hello world!"`
+
+let myStringSeven = "Hello world!"
+let lastChar = (myStringSeven.last)!
+print(lastChar)
+
+
+
+```
 
 ***
 ## Question 6
@@ -42,31 +87,89 @@ Print out the last character in the string below.  You cannot use the Character 
 Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
-
+``` swift
+var string = "Cueva"
+if string.count % 2 == 0 {
+    for letter in string {
+        print(letter)
+    }
+} else  {
+    for(index, element) in string.enumerated() {
+        if index % 2 == 1 {
+            print(element)
+        }
+    }
+  }
+```
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
+```
+let dogNameChar: [Character] = ["L", "u", "c", "k", "y"]
 
+let dogNameString = String(dogNameChar)
+```
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
+```
+var PreComposedCharacter1 = "á"
+var combinableUnicodeScalars1 = "\u{0061}\u{0301}"
+
+print(PreComposedCharacter1  == combinableUnicodeScalars1)
+
+var PreComposedCharacter2 = "ñ"
+var combinableUnicodeScalars2 = "\u{006e}\u{0303}"
+
+print(PreComposedCharacter2  == combinableUnicodeScalars2)
+
+var PreComposedCharacter3 = "ö"
+var combinableUnicodeScalars3 = "\u{006f}\u{0308}"
+
+print(PreComposedCharacter3  == combinableUnicodeScalars3)
+
+var PreComposedCharacter4 = "ç"
+var combinableUnicodeScalars4 = "\u{0063}\u{0327}"
+
+print(PreComposedCharacter4  == combinableUnicodeScalars4)
+
+var PreComposedCharacter5 = "ê"
+var combinableUnicodeScalars5 = "\u{0065}\u{0302}"
+
+print(PreComposedCharacter5  == combinableUnicodeScalars5)
+```
 
 ***
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
+```
+var helloWorld = "\u{0048}\u{0045}\u{004C}\u{004C}\u{004f}\u{0020}\u{0057}\u{004f}\u{0052}\u{004c}\u{0044}\u{0021}"
+
+print(helloWorld)
+```
 
 ***
 ## Question 10
 
 **Using only Unicode**, print out your name.
+```
 
+var name = "\u{004D}\u{0069}\u{0063}\u{0068}\u{0065}\u{006C}\u{006C}\u{0065}"
+
+print(name)
+
+```
 ***
 ## Question 11
 
 **Using only Unicode**, print out `"HELLO WORLD!"` in another language.
+```
+var spanishHelloWorld = "\u{0048}\u{006f}\u{006C}\u{0061}\u{0020}\u{004D}\u{0075}\u{006E}\u{0064}\u{006f}\u{0021}"
+print(spanishHelloWorld)
+```
 
 ***
 ## Question 12
@@ -89,6 +192,37 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
+
+var dash = "-"
+
+var bar = "|"
+
+var flower = "\u{2698}"
+
+for _ in 0...10 {
+    print(dash, terminator: " ")
+}
+
+print("")
+
+for _ in 0...10 {
+    for j in 0...10 {
+        if j % 2 == 0 {
+            print(bar, terminator: " ")
+        } else {
+        print(flower, terminator: " ")
+        }
+
+    }
+
+print(" ")
+
+}
+
+for _ in 0...10 {
+    print(dash, terminator: " ")
+}
+
 ```
 
 ***
@@ -106,6 +240,57 @@ Chess Board:
 
 ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟
 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
+
+var rook = "\u{2656}"
+var knight = "\u{2658}"
+var bishop = "\u{2657}"
+var queen = "\u{2655}"
+var king = "\u{2654}"
+var pawn = "\u{2659}"
+
+var blRook = "\u{265C}"
+var blKnight = "\u{265E}"
+var blBishop = "\u{265D}"
+var blQueen = "\u{265B}"
+var blKing = "\u{265A}"
+var blPawn = "\u{265F}"
+
+
+
+var range = 0...7
+
+for i in range {
+    for j in range {
+        if i == 1 {
+            print(pawn, terminator: " ")
+        } else if i == 6 {
+            print(blPawn, terminator: " ")
+        } else if i == 0 && (j == 0 || j == 7) {
+            print(rook,terminator: " " )
+        } else if i == 0 && (j == 1 || j == 6) {
+            print(knight, terminator: " ")
+        } else if i == 0 && (j == 2 || j == 5) {
+            print(bishop, terminator: " ")
+        } else if i == 0 && j == 4 {
+            print(king, terminator: " ")
+        } else if i == 0 && j == 3 {
+            print(queen, terminator: " ")
+        } else if i == 7 && (j == 0 || j == 7) {
+            print(blRook,terminator: " " )
+        } else if i == 7 && (j == 1 || j == 6) {
+            print(blKnight, terminator: " ")
+        } else if i == 7 && (j == 2 || j == 5) {
+            print(blBishop, terminator: " ")
+        } else if i == 7 && j == 4 {
+            print(blKing, terminator: " ")
+        } else if i == 7 && j == 3 {
+            print(blQueen, terminator: " ")
+        }
+
+    }
+    print(" ")
+}
+
 ```
 
 ***
@@ -116,6 +301,13 @@ You are given a string stored in the variable `aString`. Create new string named
 ```swift
 var aString = "Replace the letter e with \*"
 // Your code here
+
+var aString = "Replace the letter e with *"
+
+var replacedString = aString.replacingOccurrences(of: "e", with: "*")
+
+print(replacedString)
+
  ```
 
 Example:
@@ -136,6 +328,10 @@ var aString = "this string has 29 characters"
 var reverse = ""
 
 // Your code here
+
+reverse += aString.reversed()
+
+print(reverse)
 ```
 
 Example:
@@ -154,6 +350,12 @@ You are given a string stored in variable `aString`. Print `true` if `aString` i
 let aString = "anutforajaroftuna"
 
 // Your code here
+
+if (aString == String(aString.reversed())) {
+print(true)
+} else {
+print(false)
+}
 ```
 
 Example 1:
