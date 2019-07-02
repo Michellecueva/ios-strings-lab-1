@@ -17,7 +17,6 @@ Write code that prints out all the numbers from 1 to 10 as a single string.
 var num = 1...10
 
 for i in num {
-
     print(String("\(i)"), terminator: " ")
 }
 
@@ -88,24 +87,27 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 ``` swift
-var string = "Cueva"
-if string.count % 2 == 0 {
+
+let string = "Cueva"
+
+switch string.count % 2  {
+case 0 :
     for letter in string {
         print(letter)
     }
-} else  {
+default:
     for(index, element) in string.enumerated() {
         if index % 2 == 1 {
             print(element)
         }
     }
-  }
+}
 ```
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
-```
+```swift
 let dogNameChar: [Character] = ["L", "u", "c", "k", "y"]
 
 let dogNameString = String(dogNameChar)
@@ -114,7 +116,7 @@ let dogNameString = String(dogNameChar)
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
-```
+```swift
 var PreComposedCharacter1 = "á"
 var combinableUnicodeScalars1 = "\u{0061}\u{0301}"
 
@@ -145,7 +147,7 @@ print(PreComposedCharacter5  == combinableUnicodeScalars5)
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
-```
+```swift
 var helloWorld = "\u{0048}\u{0045}\u{004C}\u{004C}\u{004f}\u{0020}\u{0057}\u{004f}\u{0052}\u{004c}\u{0044}\u{0021}"
 
 print(helloWorld)
@@ -155,7 +157,7 @@ print(helloWorld)
 ## Question 10
 
 **Using only Unicode**, print out your name.
-```
+```swift
 
 var name = "\u{004D}\u{0069}\u{0063}\u{0068}\u{0065}\u{006C}\u{006C}\u{0065}"
 
@@ -166,7 +168,7 @@ print(name)
 ## Question 11
 
 **Using only Unicode**, print out `"HELLO WORLD!"` in another language.
-```
+```swift
 var spanishHelloWorld = "\u{0048}\u{006f}\u{006C}\u{0061}\u{0020}\u{004D}\u{0075}\u{006E}\u{0064}\u{006f}\u{0021}"
 print(spanishHelloWorld)
 ```
@@ -210,9 +212,8 @@ for _ in 0...10 {
         if j % 2 == 0 {
             print(bar, terminator: " ")
         } else {
-        print(flower, terminator: " ")
+            print(flower, terminator: " ")
         }
-
     }
 
 print(" ")
@@ -352,9 +353,9 @@ let aString = "anutforajaroftuna"
 // Your code here
 
 if (aString == String(aString.reversed())) {
-print(true)
+    print(true)
 } else {
-print(false)
+    print(false)
 }
 ```
 
@@ -381,6 +382,12 @@ You are given a string stored in variable `problem`. Write code so that you prin
 var problem = "split this string into words and print them on separate lines"
 
 // Your code
+
+let stringOfWords = problem.components(separatedBy: " ")
+
+for word in stringOfWords {
+    print(word)
+}
 ```
 
 Example:
@@ -411,6 +418,17 @@ You are given a string stored in variable `problem`. Write code that prints the 
 var problem = "find the longest word in the problem description"
 
 // Your code here
+
+let stringOfWords = problem.components(separatedBy: " ")
+var longestWord = ""
+
+for word in stringOfWords {
+    if word.count > longestWord.count {
+        longestWord = word
+    }
+}
+
+print(longestWord)
 ```
 
 Example:
@@ -431,6 +449,24 @@ Given a string in English, create a tuple containing the number of vowels and co
 let vowels = "aeiou"
 let consonants = "bcdfghjklmnpqrstvwxyz"
 let input = "Count how many vowels I have!"
+
+var vowelCount = 0
+var consonantsCount = 0
+
+
+for char in input {
+    if vowels.contains(char) {
+        vowelCount += 1
+    } else if consonants.contains(char) {
+        consonantsCount += 1
+    }
+
+}
+
+var bothCounts = (vowels:vowelCount,consonants:consonantsCount)
+
+print(bothCounts)
+
 ```
 
 ***
@@ -443,6 +479,21 @@ If there is no last word print out `"No last word"`.
 Example:
 Input: `"How are you doing this Monday?"`
 
+
 Output: `7`
+``` swift 
+var input = "How are you doing this Monday?"
+
+let stringOfWords = input.components(separatedBy: " ")
+
+if stringOfWords.count == 0 {
+    print("No last word")
+} else {
+    let lastWord = stringOfWords[stringOfWords.count-1]
+    print(lastWord.count)
+}
+
+
+```
 
 ***
