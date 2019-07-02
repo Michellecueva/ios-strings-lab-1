@@ -117,27 +117,28 @@ let dogNameString = String(dogNameChar)
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
 ```swift
-var PreComposedCharacter1 = "á"
+
+var PreComposedCharacter1 = "\u{E1}"
 var combinableUnicodeScalars1 = "\u{0061}\u{0301}"
 
 print(PreComposedCharacter1  == combinableUnicodeScalars1)
 
-var PreComposedCharacter2 = "ñ"
+var PreComposedCharacter2 = "\u{F1}"
 var combinableUnicodeScalars2 = "\u{006e}\u{0303}"
 
 print(PreComposedCharacter2  == combinableUnicodeScalars2)
 
-var PreComposedCharacter3 = "ö"
+var PreComposedCharacter3 = "\u{F6}"
 var combinableUnicodeScalars3 = "\u{006f}\u{0308}"
 
 print(PreComposedCharacter3  == combinableUnicodeScalars3)
 
-var PreComposedCharacter4 = "ç"
+var PreComposedCharacter4 = "\u{E7}"
 var combinableUnicodeScalars4 = "\u{0063}\u{0327}"
 
 print(PreComposedCharacter4  == combinableUnicodeScalars4)
 
-var PreComposedCharacter5 = "ê"
+var PreComposedCharacter5 = "\u{EA}"
 var combinableUnicodeScalars5 = "\u{0065}\u{0302}"
 
 print(PreComposedCharacter5  == combinableUnicodeScalars5)
